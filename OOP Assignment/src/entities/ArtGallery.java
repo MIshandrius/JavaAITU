@@ -26,11 +26,6 @@ public class ArtGallery {
         return this.Gallery;
     }
 
-    public void setGallery(String gal){
-        this.Gallery = gal;
-    }
-
-    //What gallery
     public String whatGallery(){
         return this.Gallery;
     }
@@ -39,6 +34,7 @@ public class ArtGallery {
     public String toString(){
         return "Artist : " + this.Artist + "; Artwork: " + this.Artwork + "; Gallery: " + this.Gallery;
     }
+
 
 
 

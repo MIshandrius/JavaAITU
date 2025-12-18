@@ -9,21 +9,13 @@ public class ArtGallery {
     private String Artwork;
     private String Gallery;
 
-    // Artist getter setter
-    public String getArtist(){
-        this.printArtist();
-        return this.Artist;
-    }
+    // Artist setter
 
     public void setArtist(String name){
         this.Artist = name;
     }
 
-    // Artwork getter setter
-    public String getArtwork(){
-        this.printArtwork();
-        return this.Artwork;
-    }
+    // Artwork setter
 
     public void setArtwork(String art){
         this.Artwork = art;
@@ -31,7 +23,6 @@ public class ArtGallery {
 
     // Gallery getter setter
     public String getGallery(){
-        this.printGallery();
         return this.Gallery;
     }
 
@@ -44,23 +35,11 @@ public class ArtGallery {
         return this.Gallery;
     }
 
-
     //Output
     public String toString(){
         return "Artist : " + this.Artist + "; Artwork: " + this.Artwork + "; Gallery: " + this.Gallery;
     }
 
-    private void printArtist(){
-        System.out.println(this.Artist);
-    }
-
-    private void printArtwork(){
-        System.out.println(this.Artwork);
-    }
-
-    private void printGallery(){
-        System.out.println(this.Gallery);
-    }
 
 
 

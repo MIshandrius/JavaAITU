@@ -1,9 +1,7 @@
-
 import entities.ArtGallery;
 
 public class Main{
     public static void main(String[] args){
-         System.out.println("hello wold");
 
          ArtGallery art1 = new ArtGallery();
          art1.setArtist("Van Gogh");
@@ -25,7 +23,7 @@ public class Main{
              System.out.println("In the same Gallery " + art1.whatGallery());
          }
          else{
-             System.out.println("In the DIfferent Galleries");
+             System.out.println("In the different Galleries");
          }
     }
 }

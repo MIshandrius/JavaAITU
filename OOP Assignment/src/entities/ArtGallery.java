@@ -1,42 +1,43 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ArtGallery {
-    public ArtGallery(){
+    private List<Artwork> artworks = new ArrayList<>();
 
+    // Add artwork
+    public void addArtwork(Artwork artwork) {
+        artworks.add(artwork);
     }
 
-    private String Artist;
-    private String Artwork;
-    private String Gallery;
-
-    // Artist setter
-
-    public void setArtist(String name){
-        this.Artist = name;
+    // Filter by artist name
+    public List<Artwork> filterByArtist(String artistName) {
+        return artworks.stream()
+                .filter(a -> a.getArtist().getName().equalsIgnoreCase(artistName))
+                .collect(Collectors.toList());
     }
 
-    // Artwork setter
-
-    public void setArtwork(String art){
-        this.Artwork = art;
+    // Search by title
+    public Artwork searchByTitle(String title) {
+        return artworks.stream()
+                .filter(a -> a.getTitle().equalsIgnoreCase(title))
+                .findFirst()
+                .orElse(null);
     }
 
-    // Gallery getter setter
-    public String getGallery(){
-        return this.Gallery;
+    // Sort by price
+    public List<Artwork> sortByPrice() {
+        return artworks.stream()
+                .sorted(Comparator.comparingDouble(Artwork::getPrice))
+                .collect(Collectors.toList());
     }
 
-    public String whatGallery(){
-        return this.Gallery;
+    // Display all artworks
+    public void displayAll() {
+        artworks.forEach(System.out::println);
     }
-
-    //Output
-    public String toString(){
-        return "Artist : " + this.Artist + "; Artwork: " + this.Artwork + "; Gallery: " + this.Gallery;
-    }
-
-
-
-
-
 }
+

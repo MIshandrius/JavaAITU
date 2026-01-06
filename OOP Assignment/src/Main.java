@@ -1,29 +1,32 @@
+import entities.Artwork;
 import entities.ArtGallery;
+import entities.Artist;
 
-public class Main{
-    public static void main(String[] args){
+public class Main {
+     public static void main(String[] args) {
 
-         ArtGallery art1 = new ArtGallery();
-         art1.setArtist("Van Gogh");
-         art1.setArtwork("Starry Night");
-         art1.setGallery("Gallery1");
+          Artist vanGogh = new Artist(1, "Vincent van Gogh", "Netherlands");
+          Artist daVinci = new Artist(2, "Leonardo da Vinci", "Italy");
 
-         String artInfo = art1.toString();
-         System.out.println(artInfo);
+          Artwork a1 = new Artwork(101, "Starry Night", vanGogh, 1889, 1000000);
+          Artwork a2 = new Artwork(102, "Sunflowers", vanGogh, 1888, 850000);
+          Artwork a3 = new Artwork(103, "Mona Lisa", daVinci, 1503, 5000000);
 
-         ArtGallery art2 = new ArtGallery();
-         art2.setArtist("Claude Mone");
-         art2.setArtwork("Lily water");
-         art2.setGallery("Gallery1");
+          ArtGallery gallery = new ArtGallery();
+          gallery.addArtwork(a1);
+          gallery.addArtwork(a2);
+          gallery.addArtwork(a3);
 
-         String art2Info = art2.toString();
-         System.out.println(art2Info);
+          System.out.println(" All Artworks ");
+          gallery.displayAll();
 
-         if(art1.whatGallery() == art2.whatGallery()){
-             System.out.println("In the same Gallery " + art1.whatGallery());
-         }
-         else{
-             System.out.println("In the different Galleries");
-         }
-    }
+          System.out.println("\n Filter by Artist: Van Gogh ");
+          gallery.filterByArtist("Vincent van Gogh").forEach(System.out::println);
+
+          System.out.println("\n Sorted by Price ");
+          gallery.sortByPrice().forEach(System.out::println);
+
+          System.out.println("\n Search by Title ");
+          System.out.println(gallery.searchByTitle("Mona Lisa"));
+     }
 }
